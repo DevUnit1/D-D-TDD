@@ -48,9 +48,19 @@ namespace TDDTests
         public void CharacterCanAttack()
         {
             int roll = 10;
-            var sucessfulAttack = _character.Attack(roll, _opponent);
+            var successfulAttack = _character.Attack(roll, _opponent);
 
-            Assert.IsTrue(sucessfulAttack);
+            Assert.IsTrue(successfulAttack);
+        }
+
+        [TestMethod]
+        public void CharacterCanMiss()
+        {
+            int roll = 10;
+            _opponent.ArmorClass = 1000000;
+
+            var foiledAttack = _character.Attack(roll, _opponent);
+            Assert.IsFalse(foiledAttack);
         }
     }
 }
