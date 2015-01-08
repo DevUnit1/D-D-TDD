@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Evercraft;
 
@@ -34,7 +33,8 @@ namespace TDDTests
         [TestMethod]
         public void CharacterHasDefaultArmorClass()
         {
-            Assert.AreEqual(_character.ArmorClass, 10);
+            _character.Dexterity.SetValue(10);
+            Assert.AreEqual(_character.GetModifiedArmorClass(), 10);
         }
 
         [TestMethod]
@@ -48,6 +48,14 @@ namespace TDDTests
         {
             _character.TakeDamage(Int32.MaxValue);
             Assert.IsTrue(_character.IsDead);
+        }
+
+        [TestMethod]
+        public void ArmorClassModifiedByDexterity()
+        {
+            _character.Dexterity.SetValue(14);
+
+            Assert.AreEqual(12, _character.GetModifiedArmorClass());
         }
     }
 }

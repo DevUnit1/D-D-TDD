@@ -29,8 +29,7 @@ namespace TDDTests
         [TestMethod]
         public void CharacterCanMiss()
         {
-            int roll = 10;
-            _opponent.ArmorClass = 1000000;
+            int roll = 0;
 
             Assert.IsFalse(Runner.AttackTest(roll, _character, _opponent));
         }
@@ -40,7 +39,7 @@ namespace TDDTests
         {
             int roll = 10;
             _character.Strength.SetValue(14);
-            _opponent.ArmorClass = 12;
+            _opponent.Dexterity.SetValue(14);
 
             Assert.IsTrue(Runner.AttackTest(roll, _character, _opponent));
         }
