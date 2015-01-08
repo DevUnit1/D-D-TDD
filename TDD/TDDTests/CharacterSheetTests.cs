@@ -34,5 +34,11 @@ namespace TDDTests
         {
             Assert.AreEqual(_character.ArmorClass, 10);
         }
+
+        [TestMethod]
+        public void CharacterHasDefaultHitPoints()
+        {
+            Assert.AreEqual(_character.HitPoints, 5);
+        }
     }
 }
