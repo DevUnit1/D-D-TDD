@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Runtime.InteropServices;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Evercraft;
 
 namespace TDDTests
@@ -6,12 +7,26 @@ namespace TDDTests
     [TestClass]
     public class CharacterSheetTests
     {
+        private CharacterSheet _character;
+        [TestInitialize]
+        public void Setup()
+        {
+            _character = new CharacterSheet("Awesome");
+        }
+
         [TestMethod]
         public void CharacterSheetHasName()
         {
-            var character = new CharacterSheet("Awesome");
+            Assert.AreEqual("Awesome", _character.Name);
+        }
 
-            Assert.AreEqual("Awesome", character.Name);
+        [TestMethod]
+        public void CharacterSheetHasAlignment()
+        {
+
+            _character.Alignment = Alignments.Good;
+
+            Assert.AreEqual(Alignments.Good, _character.Alignment);
         }
     }
 }
