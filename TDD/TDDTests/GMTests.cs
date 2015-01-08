@@ -37,7 +37,7 @@ namespace TDDTests
         }
 
         [TestMethod]
-        public void CriticalHitsTakeTwoDamage()
+        public void CriticalHitsTakeDoubleDamage()
         {
             int roll = 20;
             var HpBefore = defender.HitPoints;
