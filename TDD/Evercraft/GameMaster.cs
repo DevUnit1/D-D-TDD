@@ -1,4 +1,6 @@
-﻿namespace Evercraft
+﻿using System;
+
+namespace Evercraft
 {
     public class GameMaster
     {
@@ -7,19 +9,20 @@
 
             if (attacker.Attack(roll, defender))
             {
-                defender.TakeDamage(CalculateDamage(roll));
+                defender.TakeDamage(CalculateDamage(roll, attacker));
             }
         }
 
-        public int CalculateDamage(int roll)
+        public int CalculateDamage(int roll, CharacterSheet attacker)
         {
-            var damage = 1;
+            var damage = 1 + attacker.Strength.Modifier;
+
             if (roll == 20)
             {
                 damage *= 2;
             }
 
-            return damage;
+            return Math.Max(1,damage);
         }
     }
 }

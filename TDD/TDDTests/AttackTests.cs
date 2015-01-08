@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using Evercraft;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -32,6 +33,16 @@ namespace TDDTests
             _opponent.ArmorClass = 1000000;
 
             Assert.IsFalse(Runner.AttackTest(roll, _character, _opponent));
+        }
+
+        [TestMethod]
+        public void StrenghtModifierImpactsAttackRoll()
+        {
+            int roll = 10;
+            _character.Strength.SetValue(14);
+            _opponent.ArmorClass = 12;
+
+            Assert.IsTrue(Runner.AttackTest(roll, _character, _opponent));
         }
 
         private static class Runner

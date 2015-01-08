@@ -46,5 +46,27 @@ namespace TDDTests
 
             Assert.AreEqual(HpBefore - 2, defender.HitPoints);
         }
+
+        [TestMethod]
+        public void CalculateDamageTakesStrengthIntoAccount()
+        {
+            var roll = 19;
+            attacker.Strength.SetValue(14);
+
+            var damage = _gm.CalculateDamage(roll, attacker);
+
+            Assert.AreEqual(damage, 3);
+        }
+
+        [TestMethod]
+        public void MinimumDamageIsAlwaysOne()
+        {
+            var roll = 19;
+            attacker.Strength.SetValue(1);
+
+            var damage = _gm.CalculateDamage(roll, attacker);
+
+            Assert.AreEqual(damage, 1);
+        }
     }
 }
