@@ -4,15 +4,22 @@
     {
         public void ResolveCombat(int roll, CharacterSheet attacker, CharacterSheet defender)
         {
+
+            if (attacker.Attack(roll, defender))
+            {
+                defender.TakeDamage(CalculateDamage(roll));
+            }
+        }
+
+        public int CalculateDamage(int roll)
+        {
             var damage = 1;
             if (roll == 20)
             {
-                damage*=2;
+                damage *= 2;
             }
-            if (attacker.Attack(roll, defender))
-            {
-                defender.TakeDamage(damage);
-            }
+
+            return damage;
         }
     }
 }

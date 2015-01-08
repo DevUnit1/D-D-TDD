@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Evercraft;
 
@@ -40,6 +41,13 @@ namespace TDDTests
         public void CharacterHasDefaultHitPoints()
         {
             Assert.AreEqual(_character.HitPoints, 5);
+        }
+
+        [TestMethod]
+        public void CharacterKnowsWhenItsDead()
+        {
+            _character.TakeDamage(Int32.MaxValue);
+            Assert.IsTrue(_character.IsDead);
         }
     }
 }
