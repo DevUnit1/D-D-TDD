@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Alignments.cs" />
     <Compile Include="CharacterSheet.cs" />
+    <Compile Include="GameMaster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

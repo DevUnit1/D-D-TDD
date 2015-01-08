@@ -51,7 +51,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CharacterSheetTests.cs" />
+    <Compile Include="GMTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AttackTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Evercraft\Evercraft.csproj">

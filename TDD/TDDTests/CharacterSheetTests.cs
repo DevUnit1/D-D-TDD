@@ -8,13 +8,11 @@ namespace TDDTests
     public class CharacterSheetTests
     {
         private CharacterSheet _character;
-        private CharacterSheet _opponent;
 
         [TestInitialize]
         public void Setup()
         {
             _character = new CharacterSheet("Awesome");
-            _opponent = new CharacterSheet("Orc");
         }
 
         [TestMethod]
@@ -42,25 +40,6 @@ namespace TDDTests
         public void CharacterHasDefaultHitPoints()
         {
             Assert.AreEqual(_character.HitPoints, 5);
-        }
-
-        [TestMethod]
-        public void CharacterCanAttack()
-        {
-            int roll = 10;
-            var successfulAttack = _character.Attack(roll, _opponent);
-
-            Assert.IsTrue(successfulAttack);
-        }
-
-        [TestMethod]
-        public void CharacterCanMiss()
-        {
-            int roll = 10;
-            _opponent.ArmorClass = 1000000;
-
-            var foiledAttack = _character.Attack(roll, _opponent);
-            Assert.IsFalse(foiledAttack);
         }
     }
 }
