@@ -50,7 +50,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CharacterSheetTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Evercraft\Evercraft.csproj">
+      <Project>{AB4AB605-9C5F-4596-BFC9-3A535C3D98A3}</Project>
+      <Name>Evercraft</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
