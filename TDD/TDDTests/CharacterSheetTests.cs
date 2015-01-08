@@ -28,5 +28,11 @@ namespace TDDTests
 
             Assert.AreEqual(Alignments.Good, _character.Alignment);
         }
+
+        [TestMethod]
+        public void CharacterHasDefaultArmorClass()
+        {
+            Assert.AreEqual(_character.ArmorClass, 10);
+        }
     }
 }
